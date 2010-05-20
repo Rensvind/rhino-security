@@ -271,6 +271,21 @@ namespace Rhino.Security.Tests
         }
 
         [Fact]
+        public void CanGetPermissionsForUsersGroup()
+        {
+            UsersGroup usersGroup = authorizationRepository.CreateUsersGroup("CustomUsersGroup");
+
+            permissionsBuilderService.Allow("/Account").For("CustomUsersGroup").OnEverything().DefaultLevel().Save();
+            permissionsBuilderService.Deny("/Account/Edit").For("CustomUsersGroup").OnEverything().DefaultLevel().Save();
+
+            session.Flush();
+
+            Permission[] permissions = permissionService.GetPermissionsFor(usersGroup);
+
+            Assert.Equal(2, permissions.Length);
+        }
+
+        [Fact]
         public void CanRemovePermission()
         {
             Permission permission = permissionsBuilderService

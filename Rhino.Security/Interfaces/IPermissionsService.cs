@@ -32,6 +32,15 @@ namespace Rhino.Security.Interfaces
 		/// <returns></returns>
 		Permission[] GetGlobalPermissionsFor(IUser user, string operationName) ;
 
+
+        /// <summary>
+        /// Gets the permissions for the specified usersgroup
+        /// </summary>
+        /// <param name="usersGroup">The usersgroup.</param>
+        /// <returns></returns>
+	    Permission[] GetPermissionsFor(UsersGroup usersGroup) ;
+        
+
 		/// <summary>
 		/// Gets all permissions for the specified operation
 		/// </summary>

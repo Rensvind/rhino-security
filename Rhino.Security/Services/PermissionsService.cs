@@ -70,6 +70,19 @@ namespace Rhino.Security.Services
 		}
 
         /// <summary>
+        /// Gets the permissions for the specified usersgroup
+        /// </summary>
+        /// <param name="usersGroup">The usersgroup.</param>
+        /// <returns></returns>
+        public Permission[] GetPermissionsFor(UsersGroup usersGroup)
+        {
+            DetachedCriteria criteria = DetachedCriteria.For<Permission>()
+                .Add(Expression.Eq("UsersGroup", usersGroup));
+            
+            return FindResults(criteria);
+        }
+
+        /// <summary>
         /// Gets all permissions for the specified operation
         /// </summary>
         /// <param name="operationName">Name of the operation.</param>
