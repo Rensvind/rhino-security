@@ -350,6 +350,21 @@ namespace Rhino.Security.Services
                 .UniqueResult<UsersGroup>();
 		}
 
+        /// <summary>
+        /// Gets the users groups that starts with the specified string pattern
+        /// </summary>
+        /// <param name="stringPattern">.</param>
+        public virtual UsersGroup[] GetUsersGroupsStartingWith(string stringPattern)
+        {
+            ICollection<UsersGroup> usersGroups =
+                session.CreateCriteria<UsersGroup>()
+                    .Add(Restrictions.Like("Name", stringPattern, MatchMode.Start))
+                    .SetCacheable(true)
+                    .List<UsersGroup>();
+
+            return usersGroups.ToArray();
+        }
+
 		/// <summary>
 		/// Gets the entities group by its groupName
 		/// </summary>
