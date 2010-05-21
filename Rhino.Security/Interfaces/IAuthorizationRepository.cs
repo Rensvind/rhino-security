@@ -32,12 +32,6 @@ namespace Rhino.Security.Interfaces
 		/// <param name="groupName">Name of the group.</param>
 		UsersGroup GetUsersGroupByName(string groupName);
 
-        /// <summary>
-        /// Gets the users groups that starts with the specified string pattern
-        /// </summary>
-        /// <param name="stringPattern">.</param>
-        UsersGroup[] GetUsersGroupsStartingWith(string stringPattern);
-
 		/// <summary>
 		/// Gets the entities group by its name
 		/// </summary>
@@ -52,8 +46,7 @@ namespace Rhino.Security.Interfaces
 		/// <returns></returns>
 		EntitiesGroup[] GetAssociatedEntitiesGroupsFor<TEntity>(TEntity entity) where TEntity : class;
 
-
-		/// <summary>
+        /// <summary>
 		/// Associates the entity with a group with the specified name
 		/// </summary>
 		/// <typeparam name="TEntity">The type of the entity.</typeparam>

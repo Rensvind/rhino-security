@@ -106,27 +106,10 @@ namespace Rhino.Security.Tests
         }
 
         [Fact]
-        public void CanGetUsersGroupsStartingWith()
-        {
-            authorizationRepository.CreateUsersGroup("Dummy.Group1");
-            authorizationRepository.CreateUsersGroup("Dummy.Group2");
-            authorizationRepository.CreateUsersGroup("DummyGroup3");
-
-            session.Flush();
-
-            UsersGroup[] usersGroupsStartingWith = authorizationRepository.GetUsersGroupsStartingWith("Dummy.");
-
-            Assert.True(usersGroupsStartingWith.Length == 2);
-            Assert.True(usersGroupsStartingWith[0].Name != "DummyGroup3");
-            Assert.True(usersGroupsStartingWith[1].Name != "DummyGroup3");
-        }
-
-        [Fact]
         public void CanGetEntitiesGroupByName()
         {
             EntitiesGroup group = authorizationRepository.CreateEntitiesGroup("Accounts");
-
-
+            
             session.Flush(); 
             session.Evict(group);
 
