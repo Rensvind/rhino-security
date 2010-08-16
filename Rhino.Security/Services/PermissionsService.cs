@@ -97,6 +97,7 @@ namespace Rhino.Security.Services
             return this.FindResults(criteria);
         }
 
+
         /// <summary>
 		/// Gets the permissions for the specified user and entity
 		/// </summary>

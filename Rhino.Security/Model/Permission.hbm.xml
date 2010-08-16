@@ -44,7 +44,7 @@
 								 access="property"
 								 class="Operation"
 								 column="Operation"
-								 not-null="true" />
+								 not-null="true" fetch="join" />
 		<many-to-one name="User"
 								 access="property"
 								 class="Rhino.Security.IUser"
